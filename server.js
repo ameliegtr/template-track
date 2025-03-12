@@ -75,6 +75,9 @@ app.post("/generate", async (req, res) => {
       throw new Error("Figma n'a pas retourné d'URL pour ce nodeId.");
     }
 
+    // Vérifiez l'URL du SVG dans les logs
+    console.log("SVG URL:", svgDownloadUrl);
+
     // (C) TÉLÉCHARGER LE SVG
     let svgResponse = await fetch(svgDownloadUrl);
     if (!svgResponse.ok) {
